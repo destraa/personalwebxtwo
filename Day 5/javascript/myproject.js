@@ -83,3 +83,22 @@ function monthDiff(startDate, endDate) {
   months += endDate.getMonth();
   return months <= 0 ? 0 : months;
 }
+
+
+// Current timestamp in milliseconds
+let currentTime = Date.now();
+
+// Function to get countdown duration in minutes
+function getCountdownDuration(blogPostTime) {
+    let elapsedTime = currentTime - blogPostTime;
+    let remainingTime = 24 * 60 * 60 * 1000 - elapsedTime;
+    let durationInMinutes = Math.floor(remainingTime / (60 * 1000));
+
+    return durationInMinutes;
+}
+
+// Usage
+let blogPostTime = Date.parse('2022-05-12T00:00:00'); // example timestamp of blog post
+let countdownDuration = getCountdownDuration(blogPostTime);
+
+console.log('Countdown duration in minutes:', countdownDuration);
